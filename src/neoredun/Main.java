@@ -1,5 +1,9 @@
 package neoredun;
 
+import Models.SaveRead;
+import Views.ui;
+import Controllers.Controller;
+
 public class Main {
     public static void main (String[] args) {
         ui view = new ui();

@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package neoredun;
+package Pojos;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.lang.*;
+
 
 /**
  *
@@ -37,24 +36,16 @@ public class Directory {
 //Fill array recursively with file folders and sub folders.     
     public void listFiles(File dir){
         File[] filesL = dir.listFiles();
-        for (int i = 0; i <filesL.length; i++){
-            if(dirCheck(filesL[i])){
-                files.add(filesL[i]);
-                listFiles(filesL[i]);
-            }else{
-                files.add(filesL[i]);
-              }
+        for (File filesL1 : filesL) {
+            if (filesL1.isDirectory()) {
+                files.add(filesL1);
+                listFiles(filesL1);
+            } else {
+                files.add(filesL1);
+            }
         }
     }
    
-//Check if is a directory (separate for potencial use).
-   private boolean dirCheck(File file){
-       if(file.isDirectory()){
-           return true;
-       }else{
-           return false;
-       }
-   }
    
 //Separate in lines the elements of the list for easy read. * Means that the filePath is excluded for easy of use. 
    private String listArrayNextLine(){
@@ -65,7 +56,7 @@ public class Directory {
        }
        return aux;
    }
-//Return array with just the end os th path (excluding filePath)   
+//Return array with just the end of the path (excluding filePath)   
    public ArrayList<String> listContent(){
        ArrayList<String> auxA = new ArrayList<>();
        String aux = ("");

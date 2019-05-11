@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package neoredun;
+package Logic;
 
+import Pojos.Directory;
 import java.io.File;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
 /**
@@ -61,7 +61,6 @@ public class Compare {
 //Only copy if you modified the file after the last copy.    
     private void checkDate(File f, File t){
         if(f.lastModified()>t.lastModified()){
-             //System.out.println(t);
             try{
                 cp.CopyFiles(f,t);
             }catch(Exception e){
@@ -70,7 +69,7 @@ public class Compare {
          }
          
     }
-//Check if something is removed from the directory you want to make a copy of, and still remain in the copy directory. I so delete said file.     
+//Check if something is removed from the directory you want to make a copy of, and still remain in the copy directory. If so delete said file.     
     private void fromFolderCheck(){
         for(int i = 0; i < to.listContent().size(); i++){
             if(!fromList.contains(toList.get(i))){

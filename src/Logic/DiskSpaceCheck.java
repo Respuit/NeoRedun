@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package neoredun;
+package Logic;
 
 
-import java.awt.FlowLayout;
 import java.io.File;
 import javax.swing.JFrame;
+import Views.NotSpaceDisk;
 
 /**
  *
@@ -33,7 +33,7 @@ public class DiskSpaceCheck {
             return false;
         }
     }
-//Space free on the disk you are going to make a copy.    
+//Free sopace on the disk you are going to make a copy.    
     private float spaceOnDisk(File f){
         long freeSpace = f.getFreeSpace();
         return freeSpace;
