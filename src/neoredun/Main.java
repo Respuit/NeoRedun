@@ -9,6 +9,5 @@ public class Main {
         ui view = new ui();
         SaveRead model = new SaveRead();
         Controller controller = new Controller(view, model);
-
     }
 }
